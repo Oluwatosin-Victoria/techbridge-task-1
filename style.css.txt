@@ -1,0 +1,36 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+.container { width: 90%; max-width: 1100px; margin: auto; padding: 20px 0; }
+
+nav { background: #0a2540; color: white; padding: 15px 0; position: sticky; top: 0; }
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav a { color: white; text-decoration: none; font-weight: bold; }
+nav a:hover { color: #00b4d8; }
+
+.hero { background: #00b4d8; color: white; text-align: center; padding: 80px 20px; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.tagline { font-size: 1.2rem; font-style: italic; margin-bottom: 15px; }
+
+.btn { background: #0a2540; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px; }
+.btn:hover { background: #001f3f; }
+.btn-big { font-size: 1.2rem; padding: 15px 35px; }
+
+section { padding: 60px 0; }
+.programs { background: #f4f4f4; }
+.program-cards { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.card { background: white; padding: 25px; border-radius: 8px; width: 300px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.card:hover { transform: translateY(-5px); }
+
+.internship ul { list-style: none; margin-top: 20px; }
+.internship li { padding: 8px 0; font-size: 1.1rem; }
+
+.apply { background: #0a2540; color: white; text-align: center; }
+.community { text-align: center; }
+
+footer { background: #001f3f; color: white; text-align: center; padding: 30px 0; }
+
+@media(max-width: 768px){
+    nav ul { flex-direction: column; gap: 10px; }
+    .program-cards { flex-direction: column; align-items: center; }
+    .hero h1 { font-size: 1.8rem; }
+}
