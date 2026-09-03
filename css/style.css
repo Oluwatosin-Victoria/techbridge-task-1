@@ -1,34 +1,19 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body { font-family: Arial, sans-serif; color: #333; line-height: 1.6; }
-
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-header { background: #FFFFFF; padding: 15px 0; border-bottom: 3px solid #0A2A66; position: sticky; top: 0; z-index: 100; }
-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-.logo { height: 50px; }
-
-.btn { padding: 10px 20px; border-radius: 5px; text-decoration: none; color: white; font-weight: bold; margin-left: 10px; transition: 0.3s; }
-.btn-apply { background: #0A2A66; }
-.btn-apply:hover { background: #081f4d; }
-.btn-whatsapp { background: #25D366; }
-.btn-whatsapp:hover { background: #1da851; }
-.btn-hero { background: #25D366; font-size: 18px; padding: 15px 30px; display: inline-block; margin-top: 20px; color: white; }
-.btn-hero:hover { background: #1da851; }
-
-.hero { background: #f5f5f5; text-align: center; padding: 80px 20px; }
-.hero h1 { color: #0A2A66; font-size: 36px; margin-bottom: 10px; }
-.hero p { font-size: 18px; }
-
-.programs { padding: 60px 20px; text-align: center; }
-.programs h2 { color: #0A2A66; margin-bottom: 30px; font-size: 32px; }
-.cards { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-.card { background: white; border: 2px solid #0A2A66; padding: 30px; border-radius: 10px; width: 300px; text-align: left; }
-.card h3 { color: #0A2A66; margin-bottom: 10px; }
-
-footer { background: #0A2A66; color: white; text-align: center; padding: 20px; margin-top: 40px; }
-
-@media(max-width: 768px) {
-  header .container { flex-direction: column; gap: 10px; }
-  .hero h1 { font-size: 28px; }
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.navbar { background: #0a1f44; color: white; padding: 15px 0; position: sticky; top: 0; }
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { height: 40px; }
+.navbar nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: bold; }
+.hero { text-align: center; padding: 60px 20px; background: #f4f8ff; }
+.hero h1 { font-size: 2.2rem; color: #0a1f44; margin-bottom: 15px; }
+.hero img { width: 100%; max-width: 600px; border-radius: 10px; margin: 20px 0; }
+.programs { padding: 60px 20px; }
+.programs h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #0a1f44; }
+.program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.program-card { border: 1px solid #ddd; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.program-card img { width: 100%; border-radius: 8px; }
+.community { padding: 60px 20px; background: #f4f8ff; text-align: center; }
+.community img { width: 100%; max-width: 500px; border-radius: 10px; margin: 20px 0; }
+.btn { display: inline-block; padding: 12px 24px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-top: 10px; }
+.btn-primary { background: #28a745; }
+footer { background: #0a1f44; color: white; text-align: center; padding: 20px; }
