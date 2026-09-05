@@ -7,6 +7,13 @@ body { font-family: Arial, sans-serif; color: #333; line-height: 1.6; }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
+/* FIX: Make ALL images responsive - stops zoomed images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 header { background: #FFFFFF; padding: 15px 0; border-bottom: 3px solid #0A2A66; position: sticky; top: 0; z-index: 100; }
 header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
 .logo { height: 50px; }
@@ -34,19 +41,42 @@ header .container { display: flex; justify-content: space-between; align-items: 
 footer { background: #0A2A66; color: white; text-align: center; padding: 20px; margin-top: 40px; }
 
 /* ======================
-   TASK 2 - PROGRAMS PAGE
+   TASK 2 - PROGRAMS PAGE + BUG FIXES
    ====================== */
 
+/* NAVBAR FIX - Flex layout so logo doesn't cover links */
 .navbar {
     background: #0A1F44;
-    padding: 15px 20px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    flex-wrap: wrap;
 }
-.navbar .logo img { width: 120px; height: auto; }
-.navbar .nav-links { list-style: none; padding: 0; margin-top: 10px; }
-.navbar .nav-links li { display: inline-block; margin: 0 15px; }
-.navbar .nav-links a { color: white; text-decoration: none; font-weight: 500; }
-.navbar .nav-links a.active { border-bottom: 2px solid #28A745; }
+
+.navbar .logo img { 
+    width: 120px; /* smaller logo */
+    height: auto; 
+}
+
+.navbar .nav-links { 
+    display: flex;
+    list-style: none; 
+    gap: 30px;
+    padding: 0; 
+    margin: 0;
+}
+
+.navbar .nav-links a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.navbar .nav-links a.active { 
+    border-bottom: 2px solid #28A745; 
+}
 
 .program-hero {
     text-align: center;
@@ -88,7 +118,7 @@ footer { background: #0A2A66; color: white; text-align: center; padding: 20px; m
 .program-card ul li { margin: 8px 0; padding-left: 20px; position: relative; }
 .program-card ul li::before { content: "✓"; position: absolute; left: 0; color: #28A745; font-weight: bold; }
 
-/* Accent colors for differentiation */
+/* Accent colors */
 .data-card { border-top: 4px solid #28A745; }
 .web-card { border-top: 4px solid #007BFF; }
 
@@ -100,58 +130,48 @@ footer { background: #0A2A66; color: white; text-align: center; padding: 20px; m
 }
 .cta-section h2 { margin-bottom: 10px; }
 
-.btn-primary {
+/* BUTTON FIX - Stops "Back to Home" from splitting */
+.btn-primary, .btn-secondary {
     display: inline-block;
     padding: 12px 24px;
-    margin: 10px;
-    border-radius: 6px;
+    margin: 10px 5px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
+}
+
+.btn-primary {
     background: #007BFF;
     color: white;
 }
 .btn-primary:hover { background: #0056b3; }
 
-/* Mobile responsive */
+.btn-secondary {
+    background: transparent;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+}
+.btn-secondary:hover {
+    background: #007BFF;
+    color: white;
+}
+
+/* MOBILE RESPONSIVE */
 @media(max-width: 768px) {
   header .container { flex-direction: column; gap: 10px; }
   .hero h1 { font-size: 28px; }
   .program-cards { grid-template-columns: 1fr; }
-  .navbar .nav-links li { display: block; margin: 10px 0; }
-}
-/* NAVBAR FIX */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+  .navbar .logo img {
+    width: 100px;
+  }
+  .navbar .nav-links {
+    gap: 15px;
     flex-wrap: wrap;
-}
-
-.navbar .logo img {
-    width: 120px;  /* make logo smaller */
-    height: auto;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .navbar .logo img {
-        width: 100px;
-    }
+    justify-content: center;
+  }
 }
