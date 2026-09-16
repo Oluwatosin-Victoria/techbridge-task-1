@@ -90,14 +90,12 @@ function openModal(id){
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
-  // Task 4 listeners
   const dataBtn=document.getElementById("dataBtn");
   const webBtn=document.getElementById("webBtn");
   if(dataBtn) dataBtn.addEventListener("click",()=>showTrack("data"));
   if(webBtn) webBtn.addEventListener("click",()=>showTrack("web"));
   if(document.getElementById("tasksContainer")) showTrack("web");
 
-  // Task 5 listeners
   if(document.getElementById("challengesContainer")){
     renderChallenges();
     document.querySelectorAll(".filter-btn").forEach(btn=>{
