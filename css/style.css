@@ -289,3 +289,7 @@ footer { background: #0A2A66; color: white; text-align: center; padding: 20px; m
     font-size: 1.8rem;
   }
 }
+.track-buttons { display: flex; gap: 15px; justify-content: center; margin: 20px 0; }
+.track-buttons button { padding: 12px 25px; border: 2px solid #0056b3; background: white; cursor: pointer; font-weight: bold; border-radius: 5px; }
+.track-buttons button.active { background: #0056b3; color: white; }
+#currentTrack { text-align: center; margin: 20px 0; font-size: 1.2rem; }
