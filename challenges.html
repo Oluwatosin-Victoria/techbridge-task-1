@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechBridge - Challenge Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">TechBridge</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="roadmap.html">Internship Tasks</a></li>
+    <li><a href="challenges.html" class="active">Challenges</a></li>
+  </ul>
+</nav>
+
+<header class="roadmap-header">
+  <h1>TechBridge Challenge Hub</h1>
+  <p>Explore practical challenges designed to help TechBridge interns apply their skills and gain real-world experience.</p>
+</header>
+
+<div class="filter-section">
+  <div class="filter-group">
+    <h4>Filter by Track:</h4>
+    <button class="filter-btn active" data-filter="track" data-value="all">All</button>
+    <button class="filter-btn" data-filter="track" data-value="data">Data Analytics</button>
+    <button class="filter-btn" data-filter="track" data-value="web">Web Development</button>
+  </div>
+  <div class="filter-group">
+    <h4>Filter by Difficulty:</h4>
+    <button class="filter-btn active" data-filter="difficulty" data-value="all">All</button>
+    <button class="filter-btn" data-filter="difficulty" data-value="Beginner">Beginner</button>
+    <button class="filter-btn" data-filter="difficulty" data-value="Intermediate">Intermediate</button>
+    <button class="filter-btn" data-filter="difficulty" data-value="Advanced">Advanced</button>
+  </div>
+  <p id="count">Showing 6 challenges</p>
+</div>
+
+<div id="challengesContainer" class="tasks-grid"></div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
