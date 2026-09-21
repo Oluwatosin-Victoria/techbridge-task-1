@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechBridge - Intern Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.dashboard-container{max-width:1200px;margin:0 auto;padding:20px;}
+.welcome-card{background:linear-gradient(135deg,#2563eb,#1e40af);color:white;padding:30px;border-radius:16px;margin-bottom:25px;}
+.welcome-card h1{font-size:28px;margin-bottom:8px;}
+.welcome-card p{opacity:0.9;}
+.progress-card{background:white;padding:25px;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.08);margin-bottom:25px;}
+.progress-bar-bg{background:#e5e7eb;height:16px;border-radius:10px;overflow:hidden;margin:15px 0;}
+.progress-bar-fill{background:#22c55e;height:100%;transition:width 0.5s ease;border-radius:10px;}
+.progress-stats{display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px;margin-top:15px;}
+.stat-box{text-align:center;padding:12px;background:#f8fafc;border-radius:10px;flex:1;min-width:100px;}
+.stat-box h3{font-size:24px;color:#2563eb;}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0;}
+.filter-btn{padding:8px 18px;border:1px solid #d1d5db;background:white;border-radius:20px;cursor:pointer;transition:0.2s;}
+.filter-btn.active{background:#2563eb;color:white;border-color:#2563eb;}
+.tasks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-bottom:30px;}
+.task-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:4px solid #9ca3af;transition:0.2s;}
+.task-card.completed{border-left-color:#22c55e;}
+.task-card.in-progress{border-left-color:#f59e0b;}
+.task-card.not-started{border-left-color:#9ca3af;}
+.task-card h4{font-size:11px;letter-spacing:1px;color:#6b7280;margin-bottom:6px;}
+.task-card h3{font-size:17px;margin-bottom:8px;}
+.badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:12px;margin:8px 0;}
+.badge.completed{background:#dcfce7;color:#166534;}
+.badge.in-progress{background:#fef3c7;color:#92400e;}
+.badge.not-started{background:#f3f4f6;color:#374151;}
+.task-actions{display:flex;gap:8px;margin-top:12px;}
+.btn{padding:8px 14px;border-radius:8px;border:none;cursor:pointer;font-size:13px;}
+.btn-primary{background:#2563eb;color:white;}
+.btn-outline{background:white;border:1px solid #d1d5db;}
+.btn-success{background:#22c55e;color:white;}
+.tech-section{background:white;padding:25px;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.08);margin-bottom:25px;}
+.tech-buttons{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0;}
+.tech-content{background:#f8fafc;padding:20px;border-radius:10px;min-height:120px;line-height:1.6;}
+.challenge-preview{background:linear-gradient(135deg,#0f172a,#1e293b);color:white;padding:25px;border-radius:16px;text-align:center;}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;justify-content:center;align-items:center;padding:20px;}
+.modal.active{display:flex;}
+.modal-content{background:white;max-width:500px;width:100%;border-radius:16px;padding:25px;position:relative;animation:pop 0.3s ease;}
+@keyframes pop{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+.close-modal{position:absolute;top:12px;right:16px;font-size:22px;cursor:pointer;}
+@media(max-width:768px){.tasks-grid{grid-template-columns:1fr;} .welcome-card h1{font-size:22px;}}
+</style>
+</head>
+<body>
+
+<nav class="navbar" style="padding:15px 5%;display:flex;justify-content:space-between;align-items:center;background:white;box-shadow:0 1px 5px rgba(0,0,0,0.05);">
+<div><strong style="color:#2563eb;">TechBridge</strong></div>
+<div style="display:flex;gap:15px;">
+<a href="index.html">Home</a>
+<a href="dashboard.html" style="color:#2563eb;font-weight:bold;">Dashboard</a>
+<a href="challenges.html">Challenges</a>
+</div>
+</nav>
+
+<div class="dashboard-container">
+
+<div class="welcome-card">
+<h1>Welcome back, <span id="internName">Victoria</span> 👋</h1>
+<p><strong id="trackName">Web Development</strong> Intern • Internship Status: <span id="statusText">In Progress</span></p>
+<p style="margin-top:10px;font-size:14px;">Track your progress, complete tasks, and explore challenges.</p>
+</div>
+
+<div class="progress-card">
+<h2>Internship Progress</h2>
+<div class="progress-bar-bg"><div id="progressFill" class="progress-bar-fill" style="width:37.5%"></div></div>
+<div class="progress-stats">
+<div class="stat-box"><h3 id="completedCount">3</h3><p>Completed</p></div>
+<div class="stat-box"><h3 id="totalCount">8</h3><p>Total Tasks</p></div>
+<div class="stat-box"><h3 id="remainingCount">5</h3><p>Remaining</p></div>
+<div class="stat-box"><h3 id="percentText">37.5%</h3><p>Progress</p></div>
+</div>
+</div>
+
+<h2>Task Tracker - 8 Tasks</h2>
+<div class="filter-row">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="completed">Completed</button>
+<button class="filter-btn" data-filter="in-progress">In Progress</button>
+<button class="filter-btn" data-filter="not-started">Not Started</button>
+</div>
+
+<div id="tasksGrid" class="tasks-grid"></div>
+
+<div class="challenge-preview" style="margin:30px 0;">
+<h2>Challenge Hub</h2>
+<p style="margin:10px 0;">6 Challenges Available from Task 5</p>
+<p style="font-size:14px;opacity:0.8;margin-bottom:15px;">Apply your skills with real-world challenges</p>
+<a href="challenges.html" style="background:white;color:#0f172a;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block;">Explore Challenges →</a>
+</div>
+
+<div class="tech-section">
+<h2>Modern Web Technologies</h2>
+<p style="color:#6b7280;font-size:14px;">Click to explore technologies used in real platforms like TechBridge</p>
+<div class="tech-buttons">
+<button class="filter-btn active tech-tab" data-tech="nextjs">Next.js</button>
+<button class="filter-btn tech-tab" data-tech="vue">Vue.js</button>
+<button class="filter-btn tech-tab" data-tech="angular">Angular</button>
+<button class="filter-btn tech-tab" data-tech="backend">Backend</button>
+</div>
+<div id="techDisplay" class="tech-content"></div>
+</div>
+
+</div>
+
+<div id="taskModal" class="modal"><div class="modal-content">
+<span class="close-modal" id="closeTaskModal">&times;</span>
+<h3 id="modalTitle"></h3>
+<p id="modalDesc" style="margin:10px 0;color:#4b5563;"></p>
+<div id="modalDetails" style="background:#f8fafc;padding:15px;border-radius:8px;margin-top:10px;font-size:14px;"></div>
+</div></div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
