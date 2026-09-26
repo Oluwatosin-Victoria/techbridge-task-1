@@ -19,36 +19,27 @@ function saveTasks(tasks) {
   fs.writeFileSync(dataPath, JSON.stringify(tasks, null, 2));
 }
 
-// GET /api/tasks - Get all tasks
 app.get('/api/tasks', (req, res) => {
-  const tasks = getTasks();
-  res.json(tasks);
+  res.json(getTasks());
 });
 
-// GET /api/tasks/:id - Get one task
 app.get('/api/tasks/:id', (req, res) => {
-  const tasks = getTasks();
-  const task = tasks.find(t => t.id === parseInt(req.params.id));
+  const task = getTasks().find(t => t.id === parseInt(req.params.id));
   if (!task) return res.status(404).json({ error: 'Task not found' });
   res.json(task);
 });
 
-// PUT /api/tasks/:id - Update task status
 app.put('/api/tasks/:id', (req, res) => {
   const tasks = getTasks();
   const task = tasks.find(t => t.id === parseInt(req.params.id));
   if (!task) return res.status(404).json({ error: 'Task not found' });
-  
   if (req.body.status) task.status = req.body.status;
-  if (req.body.title) task.title = req.body.title;
-  
   saveTasks(tasks);
   res.json(task);
 });
 
-// Health check
 app.get('/api/status', (req, res) => {
-  res.json({ status: 'Connected', backend: 'TechBridge API running' });
+  res.json({ status: 'Connected' });
 });
 
 app.listen(PORT, () => {
