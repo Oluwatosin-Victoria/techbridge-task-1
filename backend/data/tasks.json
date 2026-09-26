@@ -1,0 +1,10 @@
+[
+  {"id": 1, "title": "TechBridge Landing Page", "description": "Build responsive landing page with hero and features.", "status": "completed", "duration": "3 hrs", "skills": "HTML, CSS"},
+  {"id": 2, "title": "About & Programs Section", "description": "Create about and program cards for TechBridge.", "status": "completed", "duration": "2 hrs", "skills": "Flexbox, Grid"},
+  {"id": 3, "title": "Internship Tasks Page", "description": "Display internship journey with 8 tasks overview.", "status": "completed", "duration": "3 hrs", "skills": "HTML, CSS, Responsive"},
+  {"id": 4, "title": "Learning Roadmap", "description": "Build toggle between Data and Web Development tracks.", "status": "in-progress", "duration": "4 hrs", "skills": "JavaScript, DOM"},
+  {"id": 5, "title": "Challenge Hub", "description": "Interactive hub with filters and modals for 6 challenges.", "status": "in-progress", "duration": "4 hrs", "skills": "JS Filters, Modal"},
+  {"id": 6, "title": "Intern Dashboard", "description": "Build dashboard with progress tracker and task completion.", "status": "in-progress", "duration": "5 hrs", "skills": "JS Data, Progress Logic"},
+  {"id": 7, "title": "Registration & Forms", "description": "Create registration flow with validation and localStorage.", "status": "not-started", "duration": "4 hrs", "skills": "Forms, Validation"},
+  {"id": 8, "title": "Final Deployment", "description": "Final testing, optimization and portfolio presentation.", "status": "not-started", "duration": "3 hrs", "skills": "Deployment, QA"}
+]
